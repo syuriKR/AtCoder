@@ -11,14 +11,27 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main(){
-    ll a,b;
-    cin >> a >> b;
-    while(a>0 && b>0){
-        if((a%10)+(b%10) >= 10){
-            cout << "Hard" << endl;
-            return 0;
-        }
-        a/=10;b/=10;
+    int n;
+    cin >> n;
+
+    vector<int>vec;
+    vec.push_back(0);
+
+    int rad = 0;
+    rep(i,0,n){
+        int a;
+        cin >> a;
+        rad += a;
+        rad %= 360;
+        vec.push_back(rad);     
     }
-    cout << "Easy" << endl;
+    sort(all(vec));
+
+    int ans = 0;
+    for(int i=0; i<n-1; i++){
+        ans = max(ans,vec[i+1]-vec[i]);
+    }
+    ans = max(ans,vec[0]-vec[n]+360);
+
+    cout << ans << endl;
 }

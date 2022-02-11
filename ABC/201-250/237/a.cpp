@@ -11,14 +11,10 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main(){
-    ll a,b;
-    cin >> a >> b;
-    while(a>0 && b>0){
-        if((a%10)+(b%10) >= 10){
-            cout << "Hard" << endl;
-            return 0;
-        }
-        a/=10;b/=10;
-    }
-    cout << "Easy" << endl;
+    ll n;
+    ll m = ll(1)<<31;
+    cin >> n;
+    if( (-m<=n) && (n<m) )cout << "Yes" << endl;
+    else cout << "No" << endl;
+    return 0;
 }

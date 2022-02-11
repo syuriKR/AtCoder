@@ -10,15 +10,29 @@ typedef long long ll; const int inf = INT_MAX / 2; const ll infl = 1LL << 60;
 template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } return 0; }
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
-int main(){
-    ll a,b;
-    cin >> a >> b;
-    while(a>0 && b>0){
-        if((a%10)+(b%10) >= 10){
-            cout << "Hard" << endl;
-            return 0;
-        }
-        a/=10;b/=10;
+int fx(int x){
+    string str = to_string(x);
+    int size = str.size();
+
+    ll min = 1;
+    rep(i,0,size-1){
+        min*=10;
     }
-    cout << "Easy" << endl;
+    
+    int ans = x-min+1;
+    return ans;
+}
+
+int main(){
+    ll n;
+    cin >> n;
+
+    ll ans = 0;
+
+    // 最大10^18のループ、短縮する必要あり
+    for(ll i=1; i<=n; i++){
+        ans += fx(i);
+        ans%=998244353;
+    }
+    cout << ans << endl;
 }

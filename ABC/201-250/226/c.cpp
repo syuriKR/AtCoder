@@ -11,14 +11,21 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main(){
-    ll a,b;
-    cin >> a >> b;
-    while(a>0 && b>0){
-        if((a%10)+(b%10) >= 10){
-            cout << "Hard" << endl;
-            return 0;
+    int n;
+    cin >> n;
+
+    vector<int>time(n),k(n);
+    vector<vector<int>>veca(n);
+
+    rep(i,0,n){
+        // timeは時間、kは習得必要な技数
+        cin >> time[i] >> k[i];
+        // kは習得必要な技の数字
+        rep(j,0,k[i]){
+            int a;
+            cin >> a;
+            veca[j].push_back(a);
         }
-        a/=10;b/=10;
     }
-    cout << "Easy" << endl;
+
 }
