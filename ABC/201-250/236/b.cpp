@@ -10,30 +10,23 @@ typedef long long ll; const int inf = INT_MAX / 2; const ll infl = 1LL << 60;
 template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } return 0; }
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
-
 int main(){
-    int h,w;
-    cin >> h >> w;
+    int n;
+    cin >> n;
 
-    vector<vector<int>>vec(h,vector<int>(w));
+    vector<int>vec(n);
 
-    vector<vector<int>>vec2(w,vector<int>(h));
-
-    rep(i,0,h){
-        rep(j,0,w){
-            cin >> vec[i][j];
-        }
+    rep(i,0,4*n-1){
+        int a;
+        cin >> a;
+        a--;
+        vec[a]++;
     }
 
-    rep(i,0,h){
-        rep(j,0,w){
-            vec2[j][i]=vec[i][j];
-        }
-    }
-
-    rep(i,0,w){
-        rep(j,0,h){
-            cout << vec2[i][j] << endl;
+    rep(i,0,n){
+        if(vec[i]!=4){
+            cout << i+1 << endl;
+            return 0;
         }
     }
 }
