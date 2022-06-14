@@ -11,8 +11,29 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main(){
-    string s;
-    cin >> s;
-    cout << 0 << s[0] << s[1] << s[2] << endl;
-    return 0;
+    int n;
+    cin >> n;
+
+    map<string,int>candidate;
+
+    rep(i,0,n){
+        string name;
+        cin >> name;
+        if(candidate.count(name)){
+            candidate[name]++;
+        }
+        else candidate[name]=1;
+    }
+
+    int ans = 0;
+    string ansname;
+
+    fore(i,candidate){
+        if(ans<i.second){
+            ans = i.second;
+            ansname = i.first;
+        }
+    }
+
+    cout << ansname << endl;
 }

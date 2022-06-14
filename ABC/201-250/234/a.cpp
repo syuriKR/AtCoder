@@ -10,9 +10,14 @@ typedef long long ll; const int inf = INT_MAX / 2; const ll infl = 1LL << 60;
 template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } return 0; }
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
+int fx(int x){
+    return x*x+2*x+3;
+}
+
 int main(){
-    string s;
-    cin >> s;
-    cout << 0 << s[0] << s[1] << s[2] << endl;
-    return 0;
+    int t;
+    cin >> t;
+
+    int ans = fx( fx( fx(t)+t ) + fx( fx(t) ) );
+    cout << ans << endl;
 }

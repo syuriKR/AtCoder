@@ -11,8 +11,9 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main(){
-    string s;
-    cin >> s;
-    cout << 0 << s[0] << s[1] << s[2] << endl;
+    double d;
+    cin >> d;
+
+    cout << fixed << setprecision(10) << d/100 << endl;
     return 0;
 }

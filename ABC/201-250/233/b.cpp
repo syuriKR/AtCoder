@@ -11,8 +11,30 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 
 int main(){
+    int l,r;
     string s;
-    cin >> s;
-    cout << 0 << s[0] << s[1] << s[2] << endl;
+    
+    cin >> l >> r >> s;
+
+    int strsize = s.size();
+    
+    string ans;
+    string rev;
+
+    for(int i=0; i<l-1; i++){
+        ans+=s[i];
+    }
+
+    for(int i=l-1; i<r; i++){
+        rev+=s[i];
+    }
+    reverse(all(rev));
+    ans+=rev;
+
+    for(int i=r; i<strsize; i++){
+        ans+=s[i];
+    }
+
+    cout << ans << endl;
     return 0;
 }

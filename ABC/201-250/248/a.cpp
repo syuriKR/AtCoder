@@ -13,6 +13,12 @@ template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } 
 int main(){
     string s;
     cin >> s;
-    cout << 0 << s[0] << s[1] << s[2] << endl;
-    return 0;
+
+    int sum = 0;
+
+    fore(i,s){
+        sum += i-'0';
+    }
+
+    cout << 45-sum << endl;
 }

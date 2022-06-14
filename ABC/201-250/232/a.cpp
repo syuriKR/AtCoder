@@ -13,6 +13,9 @@ template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } 
 int main(){
     string s;
     cin >> s;
-    cout << 0 << s[0] << s[1] << s[2] << endl;
+    int s1 = s[0] - '0';
+    int s2 = s[2] - '0';
+    cout << s1*s2 << endl;
+
     return 0;
 }
